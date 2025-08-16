@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <title>FristFrix - Contact Us</title>
+    <style>
+        body { font-family: Arial; background: #f9f9f9; text-align: center; }
+        .container { margin-top: 50px; }
+        input, textarea {
+            padding: 10px; margin: 10px; width: 80%;
+            border-radius: 5px; border: 1px solid #ccc;
+        }
+        button {
+            background-color: #25D366; color: white; padding: 10px 20px;
+            border: none; border-radius: 5px; font-size: 18px;
+        }
+        button:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FristFrix – Contact Us</h1>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="పేరు" required><br>
+            <input type="text" id="phone" placeholder="ఫోన్ నెంబర్" required><br>
+            <textarea id="message" placeholder="మీ సమస్య వివరించండి..." rows="5" required></textarea><br>
+            <button type="submit">WhatsApp ద్వారా పంపండి</button>
+        </form>
+        <br>
+        <h2>📌 రిపేర్ సేవలు:</h2>
+        <p>PC, LED TV, మొబైల్, Software/Hardware, Industrial Solutions</p>
+        <h3>📍 అడ్రస్:</h3>
+        <p>Opp. NHM Petrol Bunk, Siddhahalli Main Road, Vigneshwara Layout – 560073</p>
+        <h3>📞 కాంటాక్ట్:</h3>
+        <p>హరీష్ – 9986682798</p>
+        <p>Instagram: <a href="https://instagram.com/harish_jain_bn" target="_blank">@harish_jain_bn</a></p>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+            var fullMessage = `పేరు: ${name}%0Aఫోన్: ${phone}%0Aసందేశం: ${message}`;
+            var apiKey = 'PUT-YOUR-API-KEY-HERE'; // CallMeBot నుండి తీసుకోండి
+            var whatsappURL = `https://api.callmebot.com/whatsapp.php?phone=+919986682798&text=${fullMessage}&apikey=${apiKey}`;
+            window.open(whatsappURL);
+        });
+    </script>
+</body>
+</html>
