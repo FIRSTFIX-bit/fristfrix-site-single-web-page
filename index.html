@@ -1,39 +1,77 @@
 <!DOCTYPE html>
-<html lang="te">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>FristFrix - Contact Us</title>
     <style>
-        body { font-family: Arial; background: #f9f9f9; text-align: center; }
-        .container { margin-top: 50px; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
         input, textarea {
-            padding: 10px; margin: 10px; width: 80%;
-            border-radius: 5px; border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
         }
         button {
-            background-color: #25D366; color: white; padding: 10px 20px;
-            border: none; border-radius: 5px; font-size: 18px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        button:hover { background-color: #128C7E; }
+        button:hover {
+            background-color: #128C7E;
+        }
+        h1, h2, h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        p, a {
+            color: #555;
+            font-size: 16px;
+            margin: 5px 0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>FristFrix – Contact Us</h1>
         <form id="contactForm">
-            <input type="text" id="name" placeholder="పేరు" required><br>
-            <input type="text" id="phone" placeholder="ఫోన్ నెంబర్" required><br>
-            <textarea id="message" placeholder="మీ సమస్య వివరించండి..." rows="5" required></textarea><br>
-            <button type="submit">WhatsApp ద్వారా పంపండి</button>
+            <input type="text" id="name" placeholder="Name" required /><br />
+            <input type="text" id="phone" placeholder="Phone Number" required /><br />
+            <textarea id="message" placeholder="Describe your issue..." rows="5" required></textarea><br />
+            <button type="submit">Send via WhatsApp</button>
         </form>
-        <br>
-        <h2>📌 రిపేర్ సేవలు:</h2>
-        <p>PC, LED TV, మొబైల్, Software/Hardware, Industrial Solutions</p>
-        <h3>📍 అడ్రస్:</h3>
+        <br />
+        <h2>📌 Repair Services:</h2>
+        <p>PC, LED TV, Mobile, Software/Hardware, Industrial Solutions</p>
+        <h3>📍 Address:</h3>
         <p>Opp. NHM Petrol Bunk, Siddhahalli Main Road, Vigneshwara Layout – 560073</p>
-        <h3>📞 కాంటాక్ట్:</h3>
-        <p>హరీష్ – 9986682798</p>
-        <p>Instagram: <a href="https://instagram.com/harish_jain_bn" target="_blank">@harish_jain_bn</a></p>
+        <h3>📞 Contact:</h3>
+        <p>Harish – 9986682798</p>
+        <p>Instagram: <a href="https://instagram.com/harish_jain_bn" target="_blank" rel="noopener noreferrer">@harish_jain_bn</a></p>
     </div>
 
     <script>
@@ -42,8 +80,8 @@
             var name = document.getElementById('name').value;
             var phone = document.getElementById('phone').value;
             var message = document.getElementById('message').value;
-            var fullMessage = `పేరు: ${name}%0Aఫోన్: ${phone}%0Aసందేశం: ${message}`;
-            var apiKey = 'PUT-YOUR-API-KEY-HERE'; // CallMeBot నుండి తీసుకోండి
+            var fullMessage = `Name: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
+            var apiKey = 'PUT-YOUR-API-KEY-HERE'; // Get your API key from CallMeBot
             var whatsappURL = `https://api.callmebot.com/whatsapp.php?phone=+919986682798&text=${fullMessage}&apikey=${apiKey}`;
             window.open(whatsappURL);
         });
